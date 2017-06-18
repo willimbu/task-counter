@@ -10,10 +10,15 @@ import {MdToolbarModule} from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuth } from "angularfire2/auth";
+import { LoginManagerService } from "app/services/login-manager/login-manager.service";
+import { AppHeaderComponent } from './app-header/app-header.component';
+import {MdMenuModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -23,10 +28,11 @@ import { AngularFireAuth } from "angularfire2/auth";
     MdButtonModule,
     MdButtonToggleModule,
     MdIconModule,
+    MdMenuModule,
     MdToolbarModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth,LoginManagerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

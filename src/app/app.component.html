@@ -1,15 +1,7 @@
-<md-toolbar color="primary">
-    <span>Task Counter</span>
-    <span class="example-spacer"></span>
-    <md-icon class="example-icon">favorite</md-icon>
-    <md-icon class="example-icon">delete</md-icon>
-</md-toolbar>
+<app-app-header></app-app-header>
 
+<h1>Main</h1>
 
-
-<h1>
-    Login
-</h1>
-<div> {{ (user | async)?.uid }} </div>
-<button (click)="login()">Login</button>
-<button (click)="logout()">Logout</button>
+<button md-button class="round-add-button" color="primary">
+  <md-icon>add</md-icon>
+</button>
