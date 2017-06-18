@@ -8,9 +8,8 @@
 
 
 <h1>
-    {{title}}
+    Login
 </h1>
-<button md-button #but>Click me!</button>
-<md-button-toggle>
-    <md-icon>format_align_left</md-icon>
-</md-button-toggle>
+<div> {{ (user | async)?.uid }} </div>
+<button (click)="login()">Login</button>
+<button (click)="logout()">Logout</button>
