@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-declare var Hammer:any;
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 
 @Component({
@@ -9,9 +11,19 @@ declare var Hammer:any;
 })
 export class AppComponent {
     title = 'app works!';
+    user: Observable<firebase.User>;
 
-    constructor() {
-
+    constructor(public afAuth: AngularFireAuth) {
+      this.user = afAuth.authState;
     }
+
+    login() {
+      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+
+    logout() {
+      this.afAuth.auth.signOut();
+    }
+
 
 }

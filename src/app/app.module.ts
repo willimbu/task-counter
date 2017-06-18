@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import {MdButtonModule,MdButtonToggleModule,MdIconModule} from '@angular/material';
 import 'hammerjs';
 import {MdToolbarModule} from '@angular/material';
-
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuth } from "angularfire2/auth";
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import {MdToolbarModule} from '@angular/material';
     MdButtonModule,
     MdButtonToggleModule,
     MdIconModule,
-    MdToolbarModule
+    MdToolbarModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
